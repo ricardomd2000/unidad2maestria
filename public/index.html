@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso - Actividad Módulo 2</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container login-container">
+        <div class="card">
+            <h1>Ingreso a la Actividad</h1>
+            <p>Por favor, ingresa tu correo electrónico para continuar.</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" required placeholder="tu-correo@ejemplo.com">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Contraseña (Opcional para estudiantes):</label>
+                    <input type="password" id="password" placeholder="Solo para el docente">
+                </div>
+
+                <div id="errorMessage" class="error hidden"></div>
+                
+                <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>

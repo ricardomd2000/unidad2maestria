@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Módulo 2 - Estudiante</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h2>Actividad Módulo 2</h2>
+            <div class="user-info">
+                <span id="studentNameDisplay">Cargando...</span>
+                <button id="logoutBtn" class="btn btn-danger">Salir</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="statusMessage" class="card" style="margin: 0 auto; text-align: center;">
+                <h2>Estado de la Actividad</h2>
+                <p id="activityStatusText">Conectando con el docente, por favor espera...</p>
+            </div>
+
+            <!-- Contenedores para los momentos (Se ocultarán/mostrarán según el estado global) -->
+            <div id="moment1Container" class="card hidden" style="margin: 20px auto;">
+                <h2>Momento 1: Dudas del tema</h2>
+                <p>Por favor escribe las dudas que tengas sobre el tema tratado:</p>
+                <textarea id="moment1Input" rows="5" placeholder="Escribe tus dudas aquí..."></textarea>
+                <br><br>
+                <button id="saveMoment1Btn" class="btn btn-primary">Guardar mis dudas</button>
+                <p id="moment1Status" style="color: green; margin-top: 10px;" class="hidden">✓ Guardado</p>
+            </div>
+
+            <div id="moment2Container" class="card hidden" style="margin: 20px auto;">
+                <h2>Momento 2: Preguntas de Comprensión</h2>
+                <p>Responde las siguientes preguntas basándote en los documentos PDF adjuntos en la plataforma.</p>
+
+                <div class="input-group">
+                    <label>Pregunta 1:</label>
+                    <textarea id="moment2Q1" rows="3"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Pregunta 2:</label>
+                    <textarea id="moment2Q2" rows="3"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>Pregunta 3:</label>
+                    <textarea id="moment2Q3" rows="3"></textarea>
+                </div>
+
+                <button id="saveMoment2Btn" class="btn btn-primary">Guardar Respuestas</button>
+                <p id="moment2Status" style="color: green; margin-top: 10px;" class="hidden">✓ Guardado</p>
+            </div>
+
+            <div id="moment3Container" class="card hidden" style="margin: 20px auto;">
+                <h2>Momento 3: Análisis Epidemiológico</h2>
+                <p>De acuerdo con la información externa proporcionada por el docente, responde:</p>
+
+                <div class="input-group">
+                    <label>1. ¿Cómo analiza los datos y qué medidas epidemiológicas utilizaría?</label>
+                    <textarea id="moment3Q1" rows="3"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>2. ¿Qué datos le parecen fundamentales en su análisis y qué otros datos epidemiológicos
+                        solicitaría?</label>
+                    <textarea id="moment3Q2" rows="3"></textarea>
+                </div>
+                <div class="input-group">
+                    <label>3. ¿Qué decisiones gerenciales tomaría a largo plazo?</label>
+                    <textarea id="moment3Q3" rows="3"></textarea>
+                </div>
+
+                <button id="saveMoment3Btn" class="btn btn-primary">Guardar Análisis</button>
+                <p id="moment3Status" style="color: green; margin-top: 10px;" class="hidden">✓ Guardado</p>
+            </div>
+
+            <div id="moment4Container" class="card hidden" style="margin: 20px auto;">
+                <h2>Momento 4: Cierre y Calificación</h2>
+                <p>Por favor califica la actividad del 1 al 10 y déjanos tus comentarios adicionales.</p>
+
+                <div class="input-group">
+                    <label>Calificación de la actividad (1 a 10):</label>
+                    <select id="moment4Rating" style="width: 100%; padding: 10px;">
+                        <option value="">Selecciona...</option>
+                        <option value="1">1 (Muy deficiente)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10 (Excelente)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Comentarios adicionales:</label>
+                    <textarea id="moment4Comments" rows="4"
+                        placeholder="¿Qué te pareció la actividad? ¿Qué mejorarías?"></textarea>
+                </div>
+
+                <button id="saveMoment4Btn" class="btn btn-primary">Guardar y Finalizar</button>
+                <p id="moment4Status" style="color: green; margin-top: 10px;" class="hidden">✓ Guardado</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/student.js"></script>
+</body>
+
+</html>
