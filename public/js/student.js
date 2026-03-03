@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Configurar estado inicial del estudiante en Firestore
     const studentRef = doc(db, 'students', studentEmail);
-    const docSnap = await getDoc(studentRef);
-    if (!docSnap.exists()) {
+    try {
         await setDoc(studentRef, {
             email: studentEmail,
             momentsData: {
@@ -24,7 +23,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 moment4: { rating: null, comments: "" }
             },
             lastUpdated: serverTimestamp()
-        });
+        }, { merge: true });
+    } catch (e) {
+        console.error("Error inicializando estudiante:", e);
     }
 
     // Elementos UI

@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const studentsRef = collection(db, 'students');
         onSnapshot(studentsRef, (snapshot) => {
             if (snapshot.empty) {
-                studentsDashboard.innerHTML = "<p>No hay estudiantes registrados aún.</p>";
+                studentsDashboard.innerHTML = "<p>No hay estudiantes registrados aún o ha ocurrido un error de conexión.</p>";
                 return;
             }
 
@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const card = createStudentCard(data);
                 studentsDashboard.appendChild(card);
             });
+        }, (error) => {
+            console.error("Error obteniendo estudiantes:", error);
+            studentsDashboard.innerHTML = `<p style="color:red;">Error de permisos de lectura: ${error.message}</p>`;
         });
     }
 
